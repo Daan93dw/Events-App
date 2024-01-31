@@ -1,7 +1,7 @@
 import { Button, useColorModeValue } from "@chakra-ui/react";
 import { styles } from "../styles/styles";
 
-function CustomButton({ clickFn, children }) {
+export const CustomButton = ({ clickFn, children }) => {
   const { btn_light, btn_dark } = styles;
   const btn_styles = useColorModeValue(btn_light, btn_dark);
 
@@ -10,6 +10,4 @@ function CustomButton({ clickFn, children }) {
       {children}
     </Button>
   );
-}
-
-export default CustomButton;
+};

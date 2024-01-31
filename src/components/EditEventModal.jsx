@@ -9,12 +9,12 @@ import {
   Button,
   Center,
 } from "@chakra-ui/react";
-import CustomButton from "./ui/CustomButton";
+import { CustomButton } from "./ui/CustomButton";
 import { updateNewEvent } from "./utils/DataFunctions";
-import EventForm from "./EventForm";
+import { EventForm } from "./EventForm";
 import { Form } from "react-router-dom";
 import { useState } from "react";
-import { useEventsAppContext } from "./utils/EventsAppContext";
+import { BASE_URL, useEventsAppContext } from "./utils/EventsAppContext";
 
 export const EditEventModal = ({ event }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,7 +40,7 @@ export const EditEventModal = ({ event }) => {
     setError(null);
     const controller = new AbortController();
 
-    fetch(`http://localhost:3000/events/${selectedEvent.id}`, {
+    fetch(`${BASE_URL}events/${selectedEvent.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -75,10 +75,6 @@ export const EditEventModal = ({ event }) => {
         }
       })
       .finally(() => {
-        // displayToast("create", true);
-        // displayToast("create", false);
-        // displayToast("delete", true);
-        // displayToast("delete", false);
         setSaving(false);
         onClose();
       });

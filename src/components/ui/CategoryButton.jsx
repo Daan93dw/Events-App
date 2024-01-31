@@ -2,7 +2,7 @@ import { Button } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { styles } from "../styles/styles";
 
-export default function CategoryButton({ text, filter }) {
+export const CategoryButton = ({ text, filter }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   let { filter_btn } = styles;
 
@@ -20,4 +20,4 @@ export default function CategoryButton({ text, filter }) {
       {text}
     </Button>
   );
-}
+};

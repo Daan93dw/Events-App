@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import EventPage, { loader as EventLoader } from "./pages/EventPage";
-import EventsPage from "./pages/EventsPage";
-import Root from "./components/Root";
+import { EventPage, loader as EventLoader } from "./pages/EventPage";
+import { EventsPage } from "./pages/EventsPage";
+import { Root } from "./components/Root";
 import { EventsAppContextProvider } from "./components/utils/EventsAppContext";
-import NewEventPage from "./pages/NewEventPage";
+import { NewEventPage } from "./pages/NewEventPage";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

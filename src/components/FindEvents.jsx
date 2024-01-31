@@ -1,12 +1,12 @@
 import { Box } from "@chakra-ui/react";
 import { useSearchParams } from "react-router-dom";
 import { useEventsAppContext } from "./utils/EventsAppContext";
-import CategoryButton from "./ui/CategoryButton";
+import { CategoryButton } from "./ui/CategoryButton";
 import { Search2Icon } from "@chakra-ui/icons";
-import InputText from "./ui/InputText";
+import { InputText } from "./ui/InputText";
 import { capitalizeWord, getActiveCategories } from "./utils/DataFunctions";
 
-function FindEvents() {
+export const FindEvents = () => {
   const { data } = useEventsAppContext();
   const [, setSearchParams] = useSearchParams();
 
@@ -39,6 +39,4 @@ function FindEvents() {
       </Box>
     </>
   );
-}
-
-export default FindEvents;
+};

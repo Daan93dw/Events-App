@@ -1,12 +1,12 @@
 import { Heading, Text } from "@chakra-ui/react";
 import { useEventsAppContext } from "../components/utils/EventsAppContext";
-import FindEvents from "../components/FindEvents";
-import EventCard from "../components/EventCard";
+import { FindEvents } from "../components/FindEvents";
+import { EventCard } from "../components/EventCard";
 import { getFilteredEvents } from "../components/utils/DataFunctions";
 import { styles } from "../components/styles/styles";
 import { CurrentState } from "../components/ui/CurrentState";
 
-function EventsPage() {
+export const EventsPage = () => {
   const { data, error, loading } = useEventsAppContext();
 
   const filteredEvents = getFilteredEvents(data);
@@ -40,6 +40,4 @@ function EventsPage() {
       ))}
     </>
   );
-}
-
-export default EventsPage;
+};

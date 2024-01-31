@@ -9,11 +9,12 @@ import {
 } from "@chakra-ui/react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import {
+  BASE_URL,
   PLACEHOLDER_USER,
   useEventsAppContext,
 } from "../components/utils/EventsAppContext";
 // import { getEventCreator } from "../components/utils/DataFunctions";
-import CustomPopOver from "../components/ui/CustomPopOver";
+import { CustomPopOver } from "../components/ui/CustomPopOver";
 import { useState } from "react";
 import {
   capitalizeWord,
@@ -24,7 +25,7 @@ import {
   getEventTime,
 } from "../components/utils/DataFunctions";
 import { EditEventModal } from "../components/EditEventModal";
-import CategoryTag from "../components/ui/CategoryTags";
+import { CategoryTag } from "../components/ui/CategoryTags";
 import { CurrentState } from "../components/ui/CurrentState";
 import { styles } from "../components/styles/styles";
 
@@ -32,12 +33,12 @@ export const loader = ({ params }) => {
   return { eventId: params.eventId };
 };
 
-function EventPage() {
+export const EventPage = () => {
   const { eventId } = useLoaderData();
   const { data, setData, loading, error, setError, displayToast } =
     useEventsAppContext();
-  const [deleting, setDeleting] = useState(false);
   const navigate = useNavigate();
+  const [deleting, setDeleting] = useState(false);
   const { h1, event_page } = styles;
   const {
     body,
@@ -55,12 +56,10 @@ function EventPage() {
     eventCreator = getEventCreator(event, data);
   }
 
-  // TODO: Might want to make a custom hook for deleting events
-  // TODO: User message for success/fail of deletion
   const handleDelete = () => {
     setDeleting(true);
     setError(null);
-    fetch(`http://localhost:3000/events/${eventId}`, {
+    fetch(`${BASE_URL}events/${eventId}`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -144,6 +143,4 @@ function EventPage() {
       </Box>
     </Box>
   );
-}
-
-export default EventPage;
+};

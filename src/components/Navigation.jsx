@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CustomButton from "./ui/CustomButton";
+import { CustomButton } from "./ui/CustomButton";
 import { useEventsAppContext } from "./utils/EventsAppContext";
 import { useColorMode } from "@chakra-ui/react";
 useEventsAppContext;
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
-function Navigation() {
+export const Navigation = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -41,6 +41,4 @@ function Navigation() {
       </ul>
     </nav>
   );
-}
-
-export default Navigation;
+};

@@ -1,9 +1,9 @@
 import { FormControl, FormLabel, Checkbox, HStack } from "@chakra-ui/react";
-import InputText from "./ui/InputText";
+import { InputText } from "./ui/InputText";
 import { useEventsAppContext } from "./utils/EventsAppContext";
 import { capitalizeWord } from "./utils/DataFunctions";
 
-function EventForm({ changeFn, thisEvent }) {
+export const EventForm = ({ changeFn, thisEvent }) => {
   const { data } = useEventsAppContext();
 
   return (
@@ -95,6 +95,4 @@ function EventForm({ changeFn, thisEvent }) {
       </FormControl>
     </>
   );
-}
-
-export default EventForm;
+};

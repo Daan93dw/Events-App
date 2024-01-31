@@ -11,9 +11,9 @@ import {
   useDisclosure,
   Box,
 } from "@chakra-ui/react";
-import CustomButton from "./CustomButton";
+import { CustomButton } from "./CustomButton";
 
-function CustomPopOver({ clickFn, children }) {
+export const CustomPopOver = ({ clickFn, children }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   return (
@@ -50,6 +50,4 @@ function CustomPopOver({ clickFn, children }) {
       </Popover>
     </>
   );
-}
-
-export default CustomPopOver;
+};

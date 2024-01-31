@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navigation from "./Navigation";
+import { Navigation } from "./Navigation";
 import { Outlet } from "react-router-dom";
 import { Box, useColorModeValue } from "@chakra-ui/react";
 import { BASE_URL, useEventsAppContext } from "./utils/EventsAppContext";
@@ -7,7 +7,7 @@ import { fixDates } from "./utils/DataFunctions";
 
 // styles
 
-function Root() {
+export const Root = () => {
   const bgOne = useColorModeValue("blackAlpha.300", "blackAlpha.200");
   const bgTwo = useColorModeValue("whiteAlpha.700", "blackAlpha.500");
 
@@ -69,6 +69,6 @@ function Root() {
       </Box>
     </Box>
   );
-}
+};
 
 export default Root;

@@ -7,12 +7,12 @@ import {
   getShortDesc,
 } from "./utils/DataFunctions";
 import { Link } from "react-router-dom";
-import CategoryTag from "./ui/CategoryTags";
+import { CategoryTag } from "./ui/CategoryTags";
 import { styles } from "./styles/styles";
 
 const { event_card } = styles;
 
-function EventCard({ event }) {
+export const EventCard = ({ event }) => {
   const eventDate = getEventDate(event);
   const { eventStart, eventEnd } = getEventTime(event);
   const shortDesc = getShortDesc(event);
@@ -62,6 +62,4 @@ function EventCard({ event }) {
       </Center>
     </Link>
   );
-}
-
-export default EventCard;
+};

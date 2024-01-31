@@ -6,7 +6,14 @@ import {
 } from "@chakra-ui/react";
 import { styles } from "../styles/styles";
 
-function InputText({ name, type, placeholder, value, icon, changeFn }) {
+export const InputText = ({
+  name,
+  type,
+  placeholder,
+  value,
+  icon,
+  changeFn,
+}) => {
   const input_styles = {
     ...styles.text_input,
     bg: useColorModeValue("blackAlpha.300", "whiteAlpha.300"),
@@ -25,6 +32,4 @@ function InputText({ name, type, placeholder, value, icon, changeFn }) {
       <InputRightElement px={"8"}>{icon}</InputRightElement>
     </InputGroup>
   );
-}
-
-export default InputText;
+};

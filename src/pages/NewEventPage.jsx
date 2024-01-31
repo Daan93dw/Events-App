@@ -1,15 +1,16 @@
 import { Button, Center, Heading, useColorModeValue } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { Form, useNavigate } from "react-router-dom";
-import EventForm from "../components/EventForm";
+import { EventForm } from "../components/EventForm";
 import { styles } from "../components/styles/styles";
 import { updateNewEvent } from "../components/utils/DataFunctions";
 import {
+  BASE_URL,
   EMPTY_EVENT,
   useEventsAppContext,
 } from "../components/utils/EventsAppContext";
 
-function NewEventPage() {
+export const NewEventPage = () => {
   const {
     setData,
     newEvent,
@@ -39,7 +40,7 @@ function NewEventPage() {
     e.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:3000/events", {
+    fetch(`${BASE_URL}events`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,8 +49,7 @@ function NewEventPage() {
     })
       .then((res) => res.json())
       .then((createdEvent) => {
-        console.log("succesfully created new event: ");
-        console.log(createdEvent);
+        console.log("Succesfully created new event: ");
         setData((prev) => {
           return {
             ...prev,
@@ -104,6 +104,4 @@ function NewEventPage() {
       </Form>
     </>
   );
-}
-
-export default NewEventPage;
+};
