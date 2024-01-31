@@ -15,6 +15,7 @@ import { EventForm } from "./EventForm";
 import { Form } from "react-router-dom";
 import { useState } from "react";
 import { BASE_URL, useEventsAppContext } from "./utils/EventsAppContext";
+import { EditIcon } from "@chakra-ui/icons";
 
 export const EditEventModal = ({ event }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -82,7 +83,10 @@ export const EditEventModal = ({ event }) => {
 
   return (
     <>
-      <CustomButton clickFn={toggleModal}>Edit Event</CustomButton>
+      <CustomButton clickFn={toggleModal}>
+        Edit Event
+        <EditIcon ml={"3"} />
+      </CustomButton>
       <Modal onClose={onClose} isOpen={isOpen} size={"lg"}>
         <ModalOverlay
           bg={"blackAlpha.500"}

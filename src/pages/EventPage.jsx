@@ -28,6 +28,7 @@ import { EditEventModal } from "../components/EditEventModal";
 import { CategoryTag } from "../components/ui/CategoryTags";
 import { CurrentState } from "../components/ui/CurrentState";
 import { styles } from "../components/styles/styles";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 export const loader = ({ params }) => {
   return { eventId: params.eventId };
@@ -137,7 +138,9 @@ export const EventPage = () => {
           </Box>
           <Box>
             {" "}
-            <CustomPopOver clickFn={handleDelete}>Delete</CustomPopOver>
+            <CustomPopOver clickFn={handleDelete}>
+              Delete <DeleteIcon ml={"3"} />
+            </CustomPopOver>
           </Box>
         </Center>
       </Box>
