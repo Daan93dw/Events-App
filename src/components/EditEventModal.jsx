@@ -69,7 +69,7 @@ export const EditEventModal = ({ event }) => {
         if (err.name === "AbortError") {
           console.log("Fetch was aborted");
         } else {
-          console.log("Something went wrong while fetching the data.");
+          console.log("Something went wrong while editing the data.");
           console.log(err);
           setError(err);
           displayToast("edit", false);
